@@ -17,11 +17,11 @@ public class Deserialization {
             fileInputStream.close();
             System.out.println("Deserialized Student Object: " + student);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println( e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+            System.out.println(e.getMessage());
         } catch (ClassNotFoundException e) {
-            System.out.println("Class not found: " + e.getMessage());
+            System.out.println( e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }

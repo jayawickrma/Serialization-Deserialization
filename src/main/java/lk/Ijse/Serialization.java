@@ -15,12 +15,13 @@ public class Serialization {
             objectOutputStream.writeObject(s);
             objectOutputStream.close();
             fileOutputStream.close();
+            System.out.println(s);
             System.out.println("Object has been Serialized");
 
         } catch (FileNotFoundException e) {
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            System.out.println("Error writing to file: " + e.getMessage());
+            System.out.println(e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
         }
