@@ -2,8 +2,11 @@ package lk.Ijse;
 
 import lombok.*;
 
+import java.io.Serializable;
 
-public class Studnt {
+
+public class Studnt implements Serializable {
+    private static final long serialVersionUID = 1L;
     String id;
     String name;
     String age;

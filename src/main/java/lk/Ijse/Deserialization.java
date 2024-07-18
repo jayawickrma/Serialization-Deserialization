@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class Deserialization {
+    Studnt studnt = new Studnt("1", "Nishan", "kalutara");
     public static void main(String[] args) {
         try(ObjectInputStream objectInputStream =new ObjectInputStream(new FileInputStream("nishan"))){
             Studnt desirialization =(Studnt)objectInputStream.readObject();
