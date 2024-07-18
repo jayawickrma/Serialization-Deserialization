@@ -12,7 +12,6 @@ public class Serialization {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("student"))) {
             objectOutputStream.writeObject(studnt);
             System.out.println("serialization "+studnt);
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
