@@ -6,20 +6,24 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class Deserialization {
-
     public static void main(String[] args) {
-        Studnt studnt =null;
-        try(ObjectInputStream objectInputStream =new ObjectInputStream(new FileInputStream("nisha"))){
-            studnt =(Studnt)objectInputStream.readObject();
-            System.out.println("deserialization "+studnt);
+        Studnt student = null;
 
-        }
-        catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+        try {
+            FileInputStream fileInputStream = new FileInputStream("nishan");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            student = (Studnt) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+            System.out.println("Deserialized Student Object: " + student);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error reading file: " + e.getMessage());
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("Class not found: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

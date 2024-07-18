@@ -7,15 +7,22 @@ import java.io.ObjectOutputStream;
 
 public class Serialization {
     public static void main(String[] args) {
-        Studnt studnt = new Studnt("1", "Nishan", "kalutara");
+        Studnt s = new Studnt("1", "nishan", "20");
 
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("student"))) {
-            objectOutputStream.writeObject(studnt);
-            System.out.println("serialization "+studnt);
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream("Nishan");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(s);
+            objectOutputStream.close();
+            fileOutputStream.close();
+            System.out.println("Object has been Serialized");
+
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println("File not found: " + e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error writing to file: " + e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
